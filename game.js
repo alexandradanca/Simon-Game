@@ -95,6 +95,7 @@ function reactivateKeypress() {
   $(".color-c")
     .filter("." + buttonColour[randomClik])
     .delay(800)
+    .delay(800)
     .fadeOut(100)
     .fadeIn(100);
   level = 1;
@@ -130,7 +131,7 @@ function nextRandom() {
 }
 
 function playSound(name) {
-  var audio = new Audio("/sounds/" + name + ".mp3");
+  audio.src = "/sounds/" + name + ".mp3";
   audio.play();
 }
 
