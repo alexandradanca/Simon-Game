@@ -6,15 +6,8 @@ let level = 0;
 let gameNextStep = 0;
 let maxScore = 0;
 let device = detectDevice();
-let device = detectDevice();
 
 $(document).ready(function ($) {
-  if (device === "Desktop") {
-    $(window).on("keypress", function () {
-      if (level === 0) {
-        reactivateKeypress();
-      }
-    });
   if (device === "Desktop") {
     $(window).on("keypress", function () {
       if (level === 0) {
@@ -104,7 +97,6 @@ function reactivateKeypress() {
 }
 
 function gameOver() {
-  $("h1").html("Game Over!<br/>Press Any Key to Restart");
   $("h1").html("Game Over!<br/>Press Any Key to Restart");
   $("body").toggleClass("gameOver");
   setTimeout(() => {
