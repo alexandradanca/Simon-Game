@@ -6,6 +6,7 @@ let level = 0;
 let gameNextStep = 0;
 let maxScore = 0;
 let device = detectDevice();
+var audio;
 
 $(document).ready(function ($) {
   if (device === "Desktop") {
@@ -93,6 +94,7 @@ function reactivateKeypress() {
   actionBtn(randomClik, gamePattern);
   $(".color-c")
     .filter("." + buttonColour[randomClik])
+    .delay(800)
     .fadeOut(100)
     .fadeIn(100);
   level = 1;
@@ -135,13 +137,9 @@ function playSound(name) {
 function actionBtn(btn, pushToArr) {
   let x = buttonColour[btn];
   pushToArr.push(x);
-  if (level > 1) {
     setTimeout(function () {
       playSound(x);
     }, 800);
-  } else {
-    playSound(x);
-  }
 }
 
 function actionBtnUser(btn, pushToArr) {
