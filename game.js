@@ -86,6 +86,8 @@ function checkAnswer() {
 }
 
 function reactivateKeypress() {
+  level = 1;
+  $("h1").text("Level " + level);
   gameNextStep = 0;
   gamePattern = [];
   userClickedPattern = [];
@@ -95,11 +97,8 @@ function reactivateKeypress() {
   $(".color-c")
     .filter("." + buttonColour[randomClik])
     .delay(800)
-    .delay(800)
     .fadeOut(100)
     .fadeIn(100);
-  level = 1;
-  $("h1").text("Level " + level);
 }
 
 function gameOver() {
@@ -131,7 +130,7 @@ function nextRandom() {
 }
 
 function playSound(name) {
-  audio.src = "/sounds/" + name + ".mp3";
+  audio = new Audio("./sounds/" + name + ".mp3");
   audio.play();
 }
 
