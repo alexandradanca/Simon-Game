@@ -1,0 +1,32 @@
+:root {
+  --h-title-container: 20vh;
+  --h-score-container: 10vh;
+  --h-main-container: calc(
+    100vh - (var(--h-title-container)) - var(--h-score-container)
+  );
+  --w-main-container: var(--h-main-container);
+  --gap: 4vw;
+  --grid-c: repeat(2, 1fr);
+
+  --font-size: 4.5vw;
+  --font-h3-size: 1vw;
+
+  --border-color-c: 0.5vw;
+}
+
+@media screen and (max-width: 576px) {
+  :root {
+    --h-title-container: 30vh;
+    --h-score-container: 20vh;
+    --font-size: 7vw;
+    --font-h3-size: 4vw;
+    --gap: 1vw;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 840px) and (min-height: 1024px) {
+  :root {
+    --font-size: 7vw;
+    --font-h3-size: 4vw;
+  }
+}

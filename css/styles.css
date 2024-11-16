@@ -1,0 +1,111 @@
+@import url(./variables.css);
+body,
+main {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  background-color: #000b58;
+}
+
+.title-container,
+.score-container {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+
+  font-family: "Hanalei Fill", system-ui;
+  font-style: normal;
+  font-size: var(--font-h3-size);
+  color: rgba(240, 248, 255, 0.836);
+  letter-spacing: 0.3vw;
+}
+
+.title-container {
+  height: var(--h-title-container);
+  justify-content: center;
+  text-align: center;
+}
+
+h1 {
+  font-size: var(--font-size);
+}
+
+.main-container {
+  height: var(--h-main-container);
+  width: var(--w-main-container);
+  margin-left: auto;
+  margin-right: auto;
+
+  display: grid;
+  grid-template-columns: var(--grid-c);
+  grid-template-rows: var(--grid-c);
+  gap: var(--gap);
+}
+
+.score-container {
+  width: var(--w-main-container);
+  height: var(--h-score-container);
+  margin-left: auto;
+  margin-right: auto;
+  font-size: var(--font-h3-size);
+  justify-content: right;
+}
+
+.color-c {
+  height: 100%;
+  width: 100%;
+  margin: auto;
+
+  border-radius: 20px;
+  border: black solid var(--border-color-c);
+}
+
+.green {
+  background-color: green;
+}
+
+.red {
+  background-color: red;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.clicked {
+  background-color: rgba(240, 248, 255, 0.526);
+}
+
+.gameOver {
+  background-color: red;
+}
+
+@media screen and (max-width: 576px) {
+  .color-c {
+    border-radius: 0px;
+  }
+
+  .green {
+    border-top-left-radius: 100%;
+  }
+
+  .red {
+    border-top-right-radius: 100%;
+  }
+
+  .yellow {
+    border-bottom-left-radius: 100%;
+  }
+
+  .blue {
+    border-bottom-right-radius: 100%;
+  }
+}
