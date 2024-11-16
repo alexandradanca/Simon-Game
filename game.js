@@ -4,6 +4,7 @@ let userClickedPattern = [];
 let randomClik = nextRandom();
 let level = 0;
 let gameNextStep = 0;
+let maxScore = 0;
 
 $(document).ready(function ($) {
   $(window).on("keypress", function () {
@@ -73,10 +74,20 @@ function gameOver() {
     $("body").toggleClass("gameOver");
   }, 200);
   playSound("wrong");
+  maxScore = checkMaxScore(maxScore, level - 1);
+  $("h3").text("Highest: " + maxScore);
   level = 0;
   $(window).on("keypress", function () {
     reactivateKeypress();
   });
+}
+
+function checkMaxScore(lastMaxScore, newScore) {
+  if (lastMaxScore < newScore) {
+    lastMaxScore = newScore;
+  }
+
+  return lastMaxScore;
 }
 
 function nextRandom() {
