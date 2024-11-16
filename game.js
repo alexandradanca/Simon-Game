@@ -68,7 +68,7 @@ function reactivateKeypress() {
 }
 
 function gameOver() {
-  $("h1").text("Game Over! Press Any Key to Restart");
+   $("h1").html("Game Over!<br/>Press Any Key to Restart");
   $("body").toggleClass("gameOver");
   setTimeout(() => {
     $("body").toggleClass("gameOver");
