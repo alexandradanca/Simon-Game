@@ -15,36 +15,26 @@ $(document).ready(function ($) {
         reactivateKeypress();
       }
     });
-
-    $(".color-c").click(function () {
-      if (level !== 0) {
-        let userClick = $(this).attr("id");
-        actionBtnUser(userClick, userClickedPattern);
-        $(this).toggleClass("clicked");
-        setTimeout(() => {
-          $(this).toggleClass("clicked");
-        }, 100);
-        checkAnswer();
-      }
-    });
   } else {
     $("body").on("click", function () {
       if (level === 0) {
         reactivateKeypress();
-      }
-    });
-    $(".color-c").click(function () {
-      if (level !== 0) {
-        let userClick = $(this).attr("id");
-        actionBtnUser(userClick, userClickedPattern);
-        $(this).toggleClass("clicked");
-        setTimeout(() => {
-          $(this).toggleClass("clicked");
-        }, 100);
-        checkAnswer();
+        $("body").off("click");
       }
     });
   }
+
+  $(".color-c").click(function () {
+    if (level !== 0) {
+      let userClick = $(this).attr("id");
+      actionBtnUser(userClick, userClickedPattern);
+      $(this).toggleClass("clicked");
+      setTimeout(() => {
+        $(this).toggleClass("clicked");
+      }, 100);
+      checkAnswer();
+    }
+  });
 });
 
 function detectDevice() {
@@ -91,7 +81,9 @@ function reactivateKeypress() {
   gameNextStep = 0;
   gamePattern = [];
   userClickedPattern = [];
-  $(window).off("keypress");
+  if (device === "Desktop") {
+    $(window).off("keypress");
+  }
   randomClik = nextRandom();
   actionBtn(randomClik, gamePattern);
   $(".color-c")
@@ -111,9 +103,18 @@ function gameOver() {
   maxScore = checkMaxScore(maxScore, level - 1);
   $("h3").text("Highest: " + maxScore);
   level = 0;
-  $(window).on("keypress", function () {
-    reactivateKeypress();
-  });
+  if (device === "Desktop") {
+    $(window).on("keypress", function () {
+      reactivateKeypress();
+    });
+  } else {
+    setTimeout(() => {
+      $("body").on("click", function () {
+        reactivateKeypress();
+        $("body").off("click");
+      });
+    }, 1000);
+  }
 }
 
 function checkMaxScore(lastMaxScore, newScore) {
@@ -137,9 +138,9 @@ function playSound(name) {
 function actionBtn(btn, pushToArr) {
   let x = buttonColour[btn];
   pushToArr.push(x);
-    setTimeout(function () {
-      playSound(x);
-    }, 800);
+  setTimeout(function () {
+    playSound(x);
+  }, 800);
 }
 
 function actionBtnUser(btn, pushToArr) {
