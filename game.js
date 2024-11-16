@@ -5,26 +5,55 @@ let randomClik = nextRandom();
 let level = 0;
 let gameNextStep = 0;
 let maxScore = 0;
+let device = detectDevice();
 
 $(document).ready(function ($) {
-  $(window).on("keypress", function () {
-    if (level === 0) {
-      reactivateKeypress();
-    }
-  });
+  if (device === "Desktop") {
+    $(window).on("keypress", function () {
+      if (level === 0) {
+        reactivateKeypress();
+      }
+    });
 
-  $(".color-c").click(function () {
-    if (level !== 0) {
-      let userClick = $(this).attr("id");
-      actionBtnUser(userClick, userClickedPattern);
-      $(this).toggleClass("clicked");
-      setTimeout(() => {
+    $(".color-c").click(function () {
+      if (level !== 0) {
+        let userClick = $(this).attr("id");
+        actionBtnUser(userClick, userClickedPattern);
         $(this).toggleClass("clicked");
-      }, 100);
-      checkAnswer();
-    }
-  });
+        setTimeout(() => {
+          $(this).toggleClass("clicked");
+        }, 100);
+        checkAnswer();
+      }
+    });
+  } else {
+    $("body").on("click", function () {
+      if (level === 0) {
+        reactivateKeypress();
+      } else {
+        let userClick = $(this).attr("id");
+        actionBtnUser(userClick, userClickedPattern);
+        $(this).toggleClass("clicked");
+        setTimeout(() => {
+          $(this).toggleClass("clicked");
+        }, 100);
+        checkAnswer();
+      }
+    });
+  }
 });
+
+function detectDevice() {
+  const userAgent = navigator.userAgent.toLowerCase();
+
+  if (/iphone|ipod|android.*mobile|windows phone/i.test(userAgent)) {
+    return "Smartphone";
+  } else if (/ipad|android(?!.*mobile)/i.test(userAgent)) {
+    return "Tablete";
+  } else {
+    return "Desktop";
+  }
+}
 
 function checkAnswer() {
   if (userClickedPattern.length - 1 < gamePattern.length - 1) {
@@ -68,7 +97,7 @@ function reactivateKeypress() {
 }
 
 function gameOver() {
-   $("h1").html("Game Over!<br/>Press Any Key to Restart");
+  $("h1").html("Game Over!<br/>Press Any Key to Restart");
   $("body").toggleClass("gameOver");
   setTimeout(() => {
     $("body").toggleClass("gameOver");
