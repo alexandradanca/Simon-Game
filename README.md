@@ -18,10 +18,10 @@
 
 <h2>Mockup</h2>
 <div align="center"> 
-  <img alt="Demo" src="./assets/images/readme-1.png" />
-  <img alt="Demo" src="./assets/images/readme-2.png" />
-  <img alt="Demo" src="./assets/images/readme-3.png" />
-  <img alt="Demo" src="./assets/images/readme-4.png" />
+  <img alt="Demo" src="./readme-1.png" />
+  <img alt="Demo" src="./readme-2.png" />
+  <img alt="Demo" src="./readme-3.png" />
+  <img alt="Demo" src="./readme-4.png" />
 </div>
 
 <h2>Mockup mp4</h2>
