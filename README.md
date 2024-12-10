@@ -1,5 +1,5 @@
 <h2 align="center">
-  <a href="https://alexandradanca.github.io/Simon-Game/" target="_blank">Simon Game</a>
+ :game_die: <a href="https://alexandradanca.github.io/Simon-Game/" target="_blank">Simon Game</a>
 </h2>
 
 <p>:joystick: Simon Game created by me :heart_eyes:. </br>It was created during front-end learning journey</p>
