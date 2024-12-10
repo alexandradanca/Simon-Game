@@ -2,7 +2,7 @@
  :game_die: <a href="https://alexandradanca.github.io/Simon-Game/" target="_blank">Simon Game</a>
 </h2>
 
-<p>:joystick: Simon Game created by me :heart_eyes:. </br>It was created during front-end learning journey</p>
+<p>:joystick: A fun and interactive memory game that challenges players to repeat color sequences and test their skills.</br>It was created during front-end learning journey</p>
 
 ## Built With
 - HTML
